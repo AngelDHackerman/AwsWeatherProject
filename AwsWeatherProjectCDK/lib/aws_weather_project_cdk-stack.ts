@@ -12,9 +12,16 @@ export class WeatherApiStack extends cdk.Stack {
       code: lambda.Code.fromAsset('../../AwsWeatherProjectOpenWeatherLambda'), // codigo que contiene la lambda que se connecta a OpenWeather
       handler: 'getWeather.handler', // exporta una función llamada 'handler' en 'getWeather.js'
       environment: { 
-        OPENWEATHER_API_KEY: process.env.OPENWEATHER_API_KEY || 'Valor_por_Defecto'  // Tambien se puede usar el AWS Secrects Manager
-      }
-    })
+        OPENWEATHER_API_KEY: process.env.OPENWEATHER_API_KEY || 'default_value'  // Tambien se puede usar el AWS Secrects Manager
+      },
+    });
+
+    // Define la API Rest en API Gateway
+    const api = new apitgateway.RestApi(this, 'WeatherApi', {
+      restApiName: 'Weather Service',
+    });
+
+    // Crea un nuevo recurso
 
   }
 }
