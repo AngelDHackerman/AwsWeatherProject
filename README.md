@@ -58,6 +58,14 @@ npm install typescript @types/node @types/aws-sdk
 ```
 
 ```bash
+npm install -g aws-cdk
+```
+
+```bash
+npm install @aws-cdk/aws-lambda @aws-cdk/aws-apigateway
+```
+
+```bash
 npm install aws-lambda
 ```
 
