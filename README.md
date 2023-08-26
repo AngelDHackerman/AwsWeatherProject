@@ -58,8 +58,11 @@ This will allow you to work with AWS services and Node.js in a type-safe manner.
 ## Usage
 Explain how to use the project here.
 
-## Contribution
-Instructions for contributing to the project.
+## Features
+- Real-time weather updates
+- Support for multiple locations
+- Interactive UI
+
 
 ## License
 License under which the project is distributed.
