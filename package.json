@@ -1,0 +1,19 @@
+{
+  "name": "awsweatherproject",
+  "version": "1.0.0",
+  "description": "## Description This project displays weather information using AWS and TypeScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AngelDHackerman/AwsWeatherProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AngelDHackerman/AwsWeatherProject/issues"
+  },
+  "homepage": "https://github.com/AngelDHackerman/AwsWeatherProject#readme"
+}
