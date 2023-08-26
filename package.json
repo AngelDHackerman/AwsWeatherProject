@@ -19,6 +19,8 @@
   "dependencies": {
     "@types/aws-sdk": "^2.7.0",
     "@types/node": "^20.5.6",
+    "aws-sdk": "^2.1445.0",
+    "axios": "^1.4.0",
     "typescript": "^5.2.2"
   }
 }

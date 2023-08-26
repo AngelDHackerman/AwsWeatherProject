@@ -44,6 +44,11 @@ The `tsconfig.json` file can be modified using this template for the code:
   }
 ```
 
+5. Install Axios for the API call
+    ```bash
+    npm install axios
+    ```
+
 ### Additional Setup for TypeScript and AWS
 
 To work with AWS and Node.js in TypeScript, you'll need to install some additional packages:
