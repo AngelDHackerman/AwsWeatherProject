@@ -67,6 +67,11 @@ npm install --save-dev @types/aws-lambda
 
 This will allow you to work with AWS services and Node.js in a type-safe manner.
 
+## Package the code in order to be send to AWS: 
+
+```
+zip -r myLambdaFunction.zip getWeather.js getWeather.ts node_modules/
+```
 
 ## Usage
 Explain how to use the project here.
