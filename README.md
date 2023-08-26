@@ -30,6 +30,30 @@ This project displays weather information using AWS and TypeScript.
     - npm --init
     - tsc --init
 
+The `tsconfig.json` file can be modified using this template for the code: 
+
+```
+  {
+    "compilerOptions": {
+      "target": "ES6",
+      "module": "commonjs",
+      "outDir": "./dist",
+      "strict": true,
+      "esModuleInterop": true
+    }
+  }
+```
+
+### Additional Setup for TypeScript and AWS
+
+To work with AWS and Node.js in TypeScript, you'll need to install some additional packages:
+
+```bash
+npm install typescript @types/node @types/aws-sdk
+```
+
+This will allow you to work with AWS services and Node.js in a type-safe manner.
+
 
 ## Usage
 Explain how to use the project here.
