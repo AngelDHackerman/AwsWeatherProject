@@ -57,6 +57,14 @@ To work with AWS and Node.js in TypeScript, you'll need to install some addition
 npm install typescript @types/node @types/aws-sdk
 ```
 
+```bash
+npm install aws-lambda
+```
+
+```bash
+npm install --save-dev @types/aws-lambda
+```
+
 This will allow you to work with AWS services and Node.js in a type-safe manner.
 
 
