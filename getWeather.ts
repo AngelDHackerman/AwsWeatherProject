@@ -1,10 +1,9 @@
 import dotenv from 'dotenv';
 dotenv.config();
-
 import axios from 'axios'
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 
-export const handle = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => { 
+export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => { 
   const apiKey = process.env.OPENWEATHER_API_KEY || 'default_key'
 
   // latitude and longitude already defined
