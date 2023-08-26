@@ -11,7 +11,7 @@ export class AwsWeatherProjectCdkStack extends cdk.Stack {
     // Define la funcion lambda
     const getWeather = new lambda.Function(this, 'getWeatherFunction', {
       runtime: lambda.Runtime.NODEJS_16_X,
-      code: lambda.Code.fromAsset('../../AwsWeatherProjectOpenWeatherLambda'), // codigo que contiene la lambda que se connecta a OpenWeather
+      code: lambda.Code.fromAsset('/home/angel/platziProgramador/AwsWeatherProject/AwsWeatherProjectOpenWeatherLambda'), // codigo que contiene la lambda que se connecta a OpenWeather
       handler: 'getWeather.handler', // exporta una función llamada 'handler' en 'getWeather.js'
       environment: { 
         OPENWEATHER_API_KEY: process.env.OPENWEATHER_API_KEY || 'default_value'  // Tambien se puede usar el AWS Secrects Manager
