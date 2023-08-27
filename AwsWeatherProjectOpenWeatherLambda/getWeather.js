@@ -18,14 +18,20 @@ dotenv_1.default.config();
 const axios_1 = __importDefault(require("axios"));
 const handler = (event) => __awaiter(void 0, void 0, void 0, function* () {
     const apiKey = process.env.OPENWEATHER_API_KEY || 'default_key';
-    // latitude and longitude already defined
-    const lat = 14.64072;
-    const lon = -90.51327;
+    // city and country for the nowcast
+    const city = 'Guatemala';
+    const country = 'gt';
     try {
         // Usando la versión 2.5 de la API
-        const response = yield axios_1.default.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`);
+        const response = yield axios_1.default.get(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${apiKey}`);
         return {
             statusCode: 200,
+            // Agregando las Cabeceras CORS
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET",
+                "Access-Control-Allow-Headers": "Content-Type" // Permite solo encabezados de tipo de contenido
+            },
             body: JSON.stringify(response.data),
         };
     }
@@ -33,6 +39,11 @@ const handler = (event) => __awaiter(void 0, void 0, void 0, function* () {
         console.error("Error fetching weather data:", error);
         return {
             statusCode: 400,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET",
+                "Access-Control-Allow-Headers": "Content-Type" // Permite solo encabezados de tipo de contenido
+            },
             body: 'Unable to fetch weather data',
         };
     }

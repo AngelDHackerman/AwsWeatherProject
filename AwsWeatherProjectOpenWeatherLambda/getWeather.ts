@@ -15,6 +15,7 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
     const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${apiKey}`);
     return {
       statusCode: 200,
+      // Agregando las Cabeceras CORS
       headers: {
         "Access-Control-Allow-Origin": "*",  // Permite a cualquier origen acceder
         "Access-Control-Allow-Methods": "GET", // Permite solo el método GET
