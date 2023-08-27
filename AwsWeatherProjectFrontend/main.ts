@@ -16,7 +16,7 @@ const updateWeatherInfo = (data: any) => {
 // Función para obtener la información del clima desde la API
 const fetchWeatherData = async () => {
   try {
-    const response = await fetch("https://ut7zhsg2ra.execute-api.us-east-1.amazonaws.com/prod/weather");
+    const response = await fetch("https://blexf7vayb.execute-api.us-east-1.amazonaws.com/prod/weather");
     const data = await response.json();
     updateWeatherInfo(data);
   } catch (error) {

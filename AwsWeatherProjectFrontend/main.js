@@ -24,7 +24,7 @@ const updateWeatherInfo = (data) => {
 // Función para obtener la información del clima desde la API
 const fetchWeatherData = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const response = yield fetch("https://ut7zhsg2ra.execute-api.us-east-1.amazonaws.com/prod/weather");
+        const response = yield fetch("https://blexf7vayb.execute-api.us-east-1.amazonaws.com/prod/weather");
         const data = yield response.json();
         updateWeatherInfo(data);
     }
