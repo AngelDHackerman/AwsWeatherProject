@@ -23,9 +23,9 @@ const updateWeatherInfo = (data) => {
     }
 };
 // Función para obtener la información del clima desde la API
-const fetchWeatherData = () => __awaiter(void 0, void 0, void 0, function* () {
+const fetchWeatherData = (cityCountry) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const response = yield fetch("https://blexf7vayb.execute-api.us-east-1.amazonaws.com/prod/weather");
+        const response = yield fetch(`https://blexf7vayb.execute-api.us-east-1.amazonaws.com/prod/weather?q=${cityCountry}`);
         const data = yield response.json();
         updateWeatherInfo(data);
     }
@@ -33,5 +33,12 @@ const fetchWeatherData = () => __awaiter(void 0, void 0, void 0, function* () {
         console.error("Error fetching weather data:", error);
     }
 });
+// Evento para mejorar el cambio en la seleccion de la ciudad
+const citySelectElement = document.getElementById('city-select');
+citySelectElement.addEventListener('change', (event) => {
+    const selectedCityCountry = event.target.value;
+    console.log(selectedCityCountry);
+    fetchWeatherData(selectedCityCountry);
+});
 // Llamada a la función para obtener la información del clima
-fetchWeatherData();
+fetchWeatherData('London,uk');

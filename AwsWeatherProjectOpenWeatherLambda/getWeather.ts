@@ -1,17 +1,14 @@
-import dotenv from 'dotenv';
-dotenv.config();
-import axios from 'axios';
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
+import axios from 'axios';
 
 export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
   const apiKey = process.env.OPENWEATHER_API_KEY || 'default_key';
 
-  // city and country for the nowcast
-  const city:string = 'Guatemala';
-  const country:string = 'gt';
+  // Obtener al ciudad y el pais desde los parametros de consulta
+  const q = event.queryStringParameters?.q || 'London,uk';
+  const [city, country] = q.split(',')
 
   try {
-    // Usando la versión 2.5 de la API
     const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${apiKey}`);
     return {
       statusCode: 200,
