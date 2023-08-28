@@ -56,4 +56,4 @@ citySelectElement.addEventListener('change', (event: Event) => {
 });
 
 // Llamada a la función para obtener la información del clima
-fetchWeatherData('London,uk');
+fetchWeatherData('Guatemala,gt');
