@@ -22,6 +22,15 @@ div#weather-info{
 div#weather-info>p{
   padding: 4px;
 }
+#city-select {
+  border-radius: 8px; 
+  border: 2px solid #4682A9;
+  padding: 8px;
+  font-size: 16px;
+  background-color: #F6F4EB;
+  color: #333;
+  cursor: pointer;
+}
 
 div#selection-country{
   background-color: #4682A9;
