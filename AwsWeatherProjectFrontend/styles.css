@@ -12,6 +12,8 @@ body {
 }
 h1{ 
   background-color: #F6F4EB;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 h2#country{
   background-color: #91C8E4;
@@ -19,9 +21,32 @@ h2#country{
 div#weather-info{
   background-color: #749BC2;
 }
-div#weather-info>p{
-  padding: 4px;
+/* Estilos para los párrafos dentro de #weather-info */
+#weather-info p {
+  font-size: 16px;
+  color: #000;  
+  padding: 8px;
 }
+
+/* Estilos específicos para cada párrafo por su ID */
+#weather-info #p1 {
+  font-weight: bold;
+  text-decoration: underline;
+
+}
+
+#weather-info #p2 {
+  text-decoration: underline;
+}
+
+#weather-info #p3 {
+  font-style: italic; 
+}
+
+#weather-info #p4 {
+  text-transform: uppercase;
+}
+
 #city-select {
   border-radius: 8px; 
   border: 2px solid #4682A9;
@@ -39,4 +64,7 @@ div#weather-info>p{
 
 div#selection-country{
   background-color: #4682A9;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+
 }
