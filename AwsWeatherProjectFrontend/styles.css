@@ -1,4 +1,28 @@
 /* Estilos básicos */
+/* Reset de márgenes y relleno */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  padding: 12px;
+}
 body {
   font-family: Arial, sans-serif;
+  padding: 20px;
+}
+h1{ 
+  background-color: #F6F4EB;
+}
+h2#country{
+  background-color: #91C8E4;
+}
+div#weather-info{
+  background-color: #749BC2;
+}
+div#weather-info>p{
+  padding: 4px;
+}
+
+div#selection-country{
+  background-color: #4682A9;
 }
