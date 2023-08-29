@@ -31,6 +31,11 @@ div#weather-info>p{
   color: #333;
   cursor: pointer;
 }
+/* style with hover on dropdown menu */
+#city-select:focus {
+  outline: none;
+  border-color: #060e12;
+}
 
 div#selection-country{
   background-color: #4682A9;
