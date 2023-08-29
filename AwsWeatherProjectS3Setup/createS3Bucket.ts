@@ -14,10 +14,10 @@ const s3 = new AWS.S3();
 
 // Parametros para la creacion del bucket
 const bucketParams: AWS.S3.CreateBucketRequest = { 
-  Bucket: 'weatherProjectFrontendBucket',
-  CreateBucketConfiguration: { 
-    LocationConstraint: 'us-east-1'
-  }
+  Bucket: 'weather-project-frontend-bucket',
+  // CreateBucketConfiguration: { 
+  //   LocationConstraint: 'us-east-1'
+  // }
 };
 
 // Crea el bucket
