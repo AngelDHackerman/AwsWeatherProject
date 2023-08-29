@@ -9,6 +9,9 @@
 body {
   font-family: Arial, sans-serif;
   padding: 20px;
+  margin: 0 auto; /* Centra el contenido */
+  max-width: 800px; /* Ancho máximo */
+  text-align: center; /* Centra el texto */
 }
 h1{ 
   background-color: #F6F4EB;
