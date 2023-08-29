@@ -21,3 +21,10 @@ const bucketParams: AWS.S3.CreateBucketRequest = {
 };
 
 // Crea el bucket
+s3.createBucket(bucketParams, (err: AWS.AWSError, data: AWS.S3.CreateBucketOutput) => { 
+  if (err) { 
+    console.log('Error al crear el bucket', err);
+  } else { 
+    console.log('Bucket creado exitosamente!', data.Location)
+  }
+})

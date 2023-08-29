@@ -45,3 +45,11 @@ const bucketParams = {
     }
 };
 // Crea el bucket
+s3.createBucket(bucketParams, (err, data) => {
+    if (err) {
+        console.log('Error al crear el bucket', err);
+    }
+    else {
+        console.log('Bucket creado exitosamente!', data.Location);
+    }
+});
