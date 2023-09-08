@@ -1,3 +1,5 @@
+A weather app using a OpenWeather API and full cloud native with AWS services. 
+
 # Weather Project with AWS and TypeScript
 
 ## Description
