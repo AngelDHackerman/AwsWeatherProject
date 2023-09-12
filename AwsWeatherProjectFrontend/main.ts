@@ -1,3 +1,9 @@
+
+
+// Still needed to create the Proxy in AWS and update this code to use the proxy service
+
+
+
 interface WeatherDetail { 
   id: number;
   main: string;
