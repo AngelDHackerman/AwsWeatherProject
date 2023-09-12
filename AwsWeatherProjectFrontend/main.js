@@ -35,3 +35,10 @@ class WeatherUI {
         }
     }
 }
+// Evento para manejar el cambio en la seccion de la ciudad
+const citySelectElement = document.getElementById('city-select');
+citySelectElement.addEventListener('change', (event) => __awaiter(void 0, void 0, void 0, function* () {
+    const selectedCityCountry = event.target.value;
+    const data = yield WeatherAPI.fetchWeatherData(selectedCityCountry);
+    WeatherUI.updateWeatherInfo(data);
+}));

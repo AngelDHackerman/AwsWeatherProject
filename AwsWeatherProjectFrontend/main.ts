@@ -49,3 +49,11 @@ class WeatherUI {
     }
   }
 }
+
+// Evento para manejar el cambio en la seccion de la ciudad
+const citySelectElement = document.getElementById('city-select') as HTMLSelectElement;
+citySelectElement.addEventListener('change', async (event: Event) => { 
+  const selectedCityCountry = (event.target as HTMLSelectElement).value;
+  const data = await WeatherAPI.fetchWeatherData(selectedCityCountry);
+  WeatherUI.updateWeatherInfo(data);
+})
