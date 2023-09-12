@@ -36,7 +36,7 @@ export class AwsWeatherProjectCdkStack extends cdk.Stack {
   // Metodo para crear la API Gateway
   private createApiGateway(): apigateway.RestApi { 
     return new apigateway.RestApi(this, 'WeatherApi', { 
-      restApiName: 'Weather Service',
+      restApiName: 'Weather Service Refactored',
     });
   }
 
