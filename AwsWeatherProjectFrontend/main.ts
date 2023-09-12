@@ -56,4 +56,10 @@ citySelectElement.addEventListener('change', async (event: Event) => {
   const selectedCityCountry = (event.target as HTMLSelectElement).value;
   const data = await WeatherAPI.fetchWeatherData(selectedCityCountry);
   WeatherUI.updateWeatherInfo(data);
-})
+});
+
+// llamada inicial jpara obtener la informacion del clima 
+(async () => { 
+  const data = await WeatherAPI.fetchWeatherData('Guatemala,gt');
+  WeatherUI.updateWeatherInfo(data);
+})();
