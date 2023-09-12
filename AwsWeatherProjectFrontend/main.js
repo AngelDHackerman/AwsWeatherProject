@@ -23,9 +23,15 @@ class WeatherUI {
         const countryElement = document.getElementById("country");
         const weatherInfoElement = document.getElementById("weather-info");
         // Convertir la temperatura de Kelvin a grados Celcius
-        const tempInCelcius = data.main.temp - 273.5;
+        const tempInCelsius = data.main.temp - 273.5;
         if (countryElement && weatherInfoElement) {
             countryElement.textContent = `Current Weather in ${data.name}, ${data.sys.country}`;
+            weatherInfoElement.innerHTML = `
+      <p id='p1'>Temperature: ${tempInCelsius.toFixed(2)}°C</p>
+      <p id='p2'>Humidity: ${data.main.humidity}%</p>
+      <p id='p3'>Wind Speed: ${data.wind.speed} m/s</p>
+      <p id='p4'>Weather: ${data.weather[0].main} (${data.weather[0].description})</p>
+      `;
         }
     }
 }
