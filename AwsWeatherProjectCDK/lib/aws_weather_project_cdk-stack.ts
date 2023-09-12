@@ -34,5 +34,35 @@ export class AwsWeatherProjectCdkStack extends cdk.Stack {
   }
 
   // Metodo para crear la API Gateway
-  
+  private createApiGateway(): apigateway.RestApi { 
+    return new apigateway.RestApi(this, 'WeatherApi', { 
+      restApiName: 'Weather Service',
+    });
+  }
+
+  // Método para agregar un método GET al recurso y conectar la función Lambda.
+  private addGetMethodToResource(weather: apigateway.Resource, getWeather: lambda.Function) {
+    weather.addMethod('GET', new apigateway.LambdaIntegration(getWeather), {
+      methodResponses: [{
+        statusCode: '200',
+        responseParameters: { 
+          'method.response.header.Access-Control-Allow-Origin': true,
+        },
+      }],
+      // @ts-ignore
+      integrationResponses: [{
+        statusCode: '200',
+        responseParameters: { 
+          'method.response.header.Access-Control-Allow-Origin': "'*'",
+        },
+      }],
+    });
+
+    // Agregamos las opciones CORS 
+    weather.addCorsPreflight({
+      allowOrigins: apigateway.Cors.ALL_ORIGINS,
+      allowMethods: apigateway.Cors.ALL_METHODS,
+      allowHeaders: apigateway.Cors.DEFAULT_HEADERS,
+    });
+  }
 }
