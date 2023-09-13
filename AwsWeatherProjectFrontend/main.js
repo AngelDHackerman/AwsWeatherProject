@@ -1,5 +1,4 @@
 "use strict";
-// Still needed to create the Proxy in AWS and update this code to use the proxy service
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -10,7 +9,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 class WeatherAPI {
-    // Metodo para obtener la informacion del clima desde la API 
     static fetchWeatherData(cityCountry) {
         return __awaiter(this, void 0, void 0, function* () {
             const response = yield fetch(`${this.BASE_URL}?q=${cityCountry}`);
@@ -18,7 +16,8 @@ class WeatherAPI {
         });
     }
 }
-WeatherAPI.BASE_URL = 'https://blexf7vayb.execute-api.us-east-1.amazonaws.com/prod/weather';
+// usando la URL BASE con la URL de la API gateway 
+WeatherAPI.BASE_URL = 'the url Here';
 class WeatherUI {
     static updateWeatherInfo(data) {
         const countryElement = document.getElementById("country");
