@@ -36,3 +36,19 @@ const createAPI = () => __awaiter(void 0, void 0, void 0, function* () {
         console.error('Error al crear la API: ', error);
     }
 });
+// Paso 2: Crear un recurso (ruta)
+const createResource = (apiId, parentId, pathPart) => __awaiter(void 0, void 0, void 0, function* () {
+    const params = {
+        restApiId: apiId,
+        parentId: parentId,
+        pathPart: parentId,
+    };
+    try {
+        const resource = yield apiGateway.createResource(params).promise();
+        console.log('Recurso creado: ', resource);
+        return resource;
+    }
+    catch (error) {
+        console.error('Error al crear el recurso: ', error);
+    }
+});
