@@ -1,9 +1,3 @@
-
-
-// Still needed to create the Proxy in AWS and update this code to use the proxy service
-
-
-
 interface WeatherDetail { 
   id: number;
   main: string;
@@ -27,11 +21,11 @@ interface WeatherResponse {
 }
 
 class WeatherAPI { 
-  private static BASE_URL = 'https://blexf7vayb.execute-api.us-east-1.amazonaws.com/prod/weather';
+  // usando la URL BASE con la URL de la API gateway 
+  private static BASE_URL = 'the url Here'
 
-  // Metodo para obtener la informacion del clima desde la API 
-  public static async fetchWeatherData (cityCountry: string): Promise<WeatherResponse> { 
-    const response = await fetch(`${this.BASE_URL}?q=${cityCountry}`);
+  public static async fetchWeatherData(cityCountry: string): Promise<WeatherResponse> {
+    const response = await fetch(`${this.BASE_URL}?q=${cityCountry}`)
     return await response.json();
   }
 }
