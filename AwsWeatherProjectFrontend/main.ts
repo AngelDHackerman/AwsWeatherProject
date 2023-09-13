@@ -22,7 +22,7 @@ interface WeatherResponse {
 
 class WeatherAPI { 
   // usando la URL BASE con la URL de la API gateway 
-  private static BASE_URL = 'the url Here'
+  private static BASE_URL = 'https://blexf7vayb.execute-api.us-east-1.amazonaws.com/prod/weather'  // URL de la API Aqui 
 
   public static async fetchWeatherData(cityCountry: string): Promise<WeatherResponse> {
     const response = await fetch(`${this.BASE_URL}?q=${cityCountry}`)

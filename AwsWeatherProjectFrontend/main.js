@@ -17,7 +17,7 @@ class WeatherAPI {
     }
 }
 // usando la URL BASE con la URL de la API gateway 
-WeatherAPI.BASE_URL = 'the url Here';
+WeatherAPI.BASE_URL = 'https://blexf7vayb.execute-api.us-east-1.amazonaws.com/prod/weather'; // URL de la API Aqui 
 class WeatherUI {
     static updateWeatherInfo(data) {
         const countryElement = document.getElementById("country");
