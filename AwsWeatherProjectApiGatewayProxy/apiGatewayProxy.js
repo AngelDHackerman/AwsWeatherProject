@@ -79,4 +79,12 @@ const setupIntegration = (apiId, resourceId) => __awaiter(void 0, void 0, void 0
         integrationHttpMethod: 'GET',
         uri: 'https://api.openweathermap.org/data/2.5/weather', // URL del endpoint real
     };
+    try {
+        const integration = yield apiGateway.putIntegration(params).promise();
+        console.log('Integration configurada: ', integration);
+        return integration;
+    }
+    catch (error) {
+        console.error('Error al configurar la integracion: ', error);
+    }
 });
