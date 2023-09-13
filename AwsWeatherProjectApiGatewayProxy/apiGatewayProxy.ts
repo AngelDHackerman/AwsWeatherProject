@@ -2,7 +2,10 @@
 // configura un método GET para ese recurso y establece una integración de tipo proxy HTTP 
 // con el endpoint real de OpenWeather.
 
+import dotenv from 'dotenv'
+dotenv.config();
 import AWS, { ResourceGroups } from 'aws-sdk';
+const OPENWEATHER_API_KEY = process.env.OPENWEATHER_API_KEY;
 
 // Configura la region y las credenciales 
 AWS.config.update({
@@ -64,14 +67,29 @@ const createMethod = async (apiId: string, resourceId: string) => {
 
 // Paso 4: Configurar la integracion del metodo con el endpoint real
 const setupIntegration = async (apiId: string, resourceId: string) => { 
+  if (!OPENWEATHER_API_KEY) { 
+    console.error('Error: La clave API de OpenWeather no esta definida')
+    process.exit(1)
+  }
   const params = { 
     restApiId: apiId,
     resourceId: resourceId,
     httpMethod: 'GET',
     type: 'HTTP_PROXY', 
     integrationHttpMethod: 'GET',
-    uri: 'https://api.openweathermap.org/data/2.5/weather', // URL del endpoint real
-  }
+    uri: `https://api.openweathermap.org/data/2.5/weather?APPID=${OPENWEATHER_API_KEY}`, // URL del endpoint real
+    passthroughBehavior: 'WHEN_NO_MATCH',
+    requestParameters: { 
+      'integration.request.querystring.q': 'method.request.querystring.q'
+    }
+  };
+
+  return new Promise((resolve, reject) => { 
+    apiGateway.putIntegration(params, (err, data) => { 
+      if (err) reject(err);
+      else resolve(data)
+    })
+  })
 
   try {
     const integration = await apiGateway.putIntegration(params).promise();
