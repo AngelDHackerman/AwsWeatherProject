@@ -32,7 +32,7 @@ const createResource = async (apiId: string, parentId: string, pathPart: string)
   const params = { 
     restApiId: apiId,
     parentId: parentId,
-    pathPart: parentId,
+    pathPart: pathPart,
   }
 
   try {
@@ -41,5 +41,35 @@ const createResource = async (apiId: string, parentId: string, pathPart: string)
     return resource;
   } catch (error) {
     console.error('Error al crear el recurso: ', error)
+  }
+};
+
+// Paso 3: Crear el metodo GET para el recurso 
+const createMethod = async (apiId: string, resourceId: string) => { 
+  const params = { 
+    restApiId: apiId,
+    resourceId: resourceId,
+    httpMethod: 'GET',
+    authorizationType: 'NONE',  // Sin autorizacion requerida para ese caso
+  };
+
+  try {
+    const method = await apiGateway.putMethod(params).promise();
+    console.log('Metodo Get creado: ', method)
+    return method
+  } catch (error) {
+    console.error('Error al crear el metodo GET: ', error)
+  }
+};
+
+// Paso 4: Configurar la integracion del metodo con el endpoint real
+const setupIntegration = async (apiId: string, resourceId: string) => { 
+  const params = { 
+    restApiId: apiId,
+    resourceId: resourceId,
+    httpMethod: 'GET',
+    type: 'HTTP_PROXY', 
+    integrationHttpMethod: 'GET',
+    uri: 'https://api.openweathermap.org/data/2.5/weather', // URL del endpoint real
   }
 }
