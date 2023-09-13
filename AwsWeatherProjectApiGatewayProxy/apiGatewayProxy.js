@@ -88,3 +88,16 @@ const setupIntegration = (apiId, resourceId) => __awaiter(void 0, void 0, void 0
         console.error('Error al configurar la integracion: ', error);
     }
 });
+// Funcion principal para ejecutar todos los pasos
+const setupAPIGateway = () => __awaiter(void 0, void 0, void 0, function* () {
+    const api = yield createAPI();
+    if (api && api.id && api.rootResourceId) {
+        const resource = yield createResource(api.id, api.rootResourceId, 'weather-proxy');
+        if (resource && resource.id) {
+            yield createMethod(api.id, resource.id);
+            yield setupIntegration(api.id, resource.id);
+        }
+    }
+});
+// Ejectua la funcion principal
+setupAPIGateway();
