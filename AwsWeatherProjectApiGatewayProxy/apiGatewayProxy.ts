@@ -2,7 +2,7 @@
 // configura un método GET para ese recurso y establece una integración de tipo proxy HTTP 
 // con el endpoint real de OpenWeather.
 
-import AWS from 'aws-sdk';
+import AWS, { ResourceGroups } from 'aws-sdk';
 
 // Configura la region y las credenciales 
 AWS.config.update({
@@ -82,3 +82,17 @@ const setupIntegration = async (apiId: string, resourceId: string) => {
   }
 };
 
+// Funcion principal para ejecutar todos los pasos
+const setupAPIGateway = async () => { 
+  const api = await createAPI();
+  if (api && api.id && api.rootResourceId) { 
+    const resource = await createResource(api.id, api.rootResourceId, 'weather-proxy')
+    if (resource && resource.id) { 
+      await createMethod(api.id, resource.id);
+      await setupIntegration(api.id, resource.id);
+    }
+  }
+};
+
+// Ejectua la funcion principal
+setupAPIGateway()
