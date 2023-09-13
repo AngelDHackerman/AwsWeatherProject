@@ -26,3 +26,20 @@ const createAPI = async () => {
     console.error('Error al crear la API: ', error)
   }
 }
+
+// Paso 2: Crear un recurso (ruta)
+const createResource = async (apiId: string, parentId: string, pathPart: string) => {
+  const params = { 
+    restApiId: apiId,
+    parentId: parentId,
+    pathPart: parentId,
+  }
+
+  try {
+    const resource = await apiGateway.createResource(params).promise();
+    console.log('Recurso creado: ', resource)
+    return resource;
+  } catch (error) {
+    console.error('Error al crear el recurso: ', error)
+  }
+}
